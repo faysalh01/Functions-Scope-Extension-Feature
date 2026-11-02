@@ -1,0 +1,7 @@
+let score = 85;
+if (score >= 90) {
+    print(1);
+}
+else {
+    print(0);
+}

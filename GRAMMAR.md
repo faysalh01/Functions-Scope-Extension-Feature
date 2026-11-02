@@ -1,5 +1,6 @@
 # Onyx Part 5 – Complete Grammar (Functions, Scope, and Arrays)
 
+```ebnf
 <program> ::= { <statement> }
 
 <statement> ::= <assignment>

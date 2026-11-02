@@ -1,0 +1,5 @@
+let a = 15;
+let b = 25;
+print(a < b);
+print(b >= 25);
+print(a == b);
