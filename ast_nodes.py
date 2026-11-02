@@ -129,4 +129,20 @@ class ArrayIndexAssignmentNode(ASTNode):
         self.expression = expression
 
     def __repr__(self):
-        return f"ArrayIndexAssignmentNode({self.array_name!r}, {self.index_expr!r}, {self.expression!r})"
+        return (
+            f"ArrayIndexAssignmentNode({self.array_name!r}, "
+            f"{self.index_expr!r}, {self.expression!r})"
+        )
+
+
+def print_ast(node, indent=0):
+    """Recursively pretty-print an AST tree. Used by parser diagnostics."""
+    print("  " * indent + str(node))
+    if hasattr(node, "__dict__"):
+        for _key, value in node.__dict__.items():
+            if isinstance(value, list):
+                for item in value:
+                    if isinstance(item, ASTNode):
+                        print_ast(item, indent + 2)
+            elif isinstance(value, ASTNode):
+                print_ast(value, indent + 2)
